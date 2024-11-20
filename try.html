@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exact Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e7d3cb; /* Background similar to the border in the image */
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      width: 80vw;
+      height: 80vh;
+    }
+
+    .container div {
+      border: 5px solid #e7d3cb; /* The border around each color block */
+    }
+
+    .top-left {
+      background-color: #402e54; /* Dark purple */
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    .top-middle {
+      background-color: #595959; /* Gray */
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    .top-right {
+      background-color: #e99a85; /* Light peach/pink */
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+    }
+
+    .center {
+      background-color: #7d3b32; /* Dark red */
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      position: relative;
+    }
+
+    .center::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #dd9b85; /* Light peach */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .bottom-left {
+      background-color: #dd9b85; /* Peach */
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .bottom-middle {
+      background-color: #251e1f; /* Dark gray/black */
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .bottom-right {
+      background-color: #402e54; /* Dark purple */
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-left"></div>
+    <div class="top-middle"></div>
+    <div class="top-right"></div>
+    <div class="bottom-left"></div>
+    <div class="center"></div>
+    <div class="bottom-middle"></div>
+    <div class="bottom-right"></div>
+  </div>
+</body>
+</html>
